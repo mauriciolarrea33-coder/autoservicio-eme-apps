@@ -1,0 +1,83 @@
+!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Autoservicio EME</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f2f2f2;
+text-align:center;
+margin:0;
+}
+
+header{
+background:#d90000;
+color:white;
+padding:20px;
+font-size:28px;
+}
+
+.producto{
+background:white;
+margin:20px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+button{
+background:#25D366;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+Autoservicio EME
+</header>
+
+<div class="producto">
+<h2>Empanadas</h2>
+<p>Docena $9000</p>
+<button onclick="pedir('Empanadas')">Pedir por WhatsApp</button>
+</div>
+
+<div class="producto">
+<h2>Pizzas</h2>
+<p>$8000</p>
+<button onclick="pedir('Pizza')">Pedir por WhatsApp</button>
+</div>
+
+<div class="producto">
+<h2>Milanesas</h2>
+<p>$7500</p>
+<button onclick="pedir('Milanesas')">Pedir por WhatsApp</button>
+</div>
+
+<script>
+
+function pedir(producto){
+
+var telefono="5492281655755"
+
+var mensaje="Hola quiero pedir "+producto+" de Autoservicio EME"
+
+var url="https://wa.me/"+telefono+"?text="+encodeURIComponent(mensaje)
+
+window.open(url)
+
+}
+
+</script>
+
+</body>
+</html>
