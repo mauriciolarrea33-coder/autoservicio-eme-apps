@@ -1,66 +1,114 @@
 !DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Autoservicio EME</title>
 
 <style>
+
 body{
-font-family: Arial;
-background:#f2f2f2;
-text-align:center;
+font-family:Arial;
 margin:0;
+background:#f2f2f2;
 }
 
 header{
 background:#d90000;
 color:white;
+text-align:center;
 padding:20px;
+}
+
+.logo{
+width:120px;
+margin-bottom:10px;
+}
+
+.titulo{
 font-size:28px;
+font-weight:bold;
+}
+
+.productos{
+padding:15px;
 }
 
 .producto{
 background:white;
-margin:20px;
 padding:15px;
+margin-bottom:15px;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+
+.producto h2{
+margin:0;
+}
+
+.precio{
+font-size:18px;
+margin:8px 0;
 }
 
 button{
 background:#25D366;
 color:white;
 border:none;
-padding:12px 20px;
+padding:12px;
 border-radius:8px;
+width:100%;
 font-size:16px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
-Autoservicio EME
+
+<img class="logo" src="https://i.imgur.com/0XKzn7C.png">
+
+<div class="titulo">Autoservicio EME</div>
+
 </header>
+
+<div class="productos">
 
 <div class="producto">
 <h2>Empanadas</h2>
-<p>Docena $9000</p>
-<button onclick="pedir('Empanadas')">Pedir por WhatsApp</button>
+<div class="precio">Docena $9000</div>
+<button onclick="pedir('Empanadas docena')">Pedir por WhatsApp</button>
 </div>
 
 <div class="producto">
-<h2>Pizzas</h2>
-<p>$8000</p>
-<button onclick="pedir('Pizza')">Pedir por WhatsApp</button>
+<h2>Pizza muzzarella</h2>
+<div class="precio">$8000</div>
+<button onclick="pedir('Pizza muzzarella')">Pedir por WhatsApp</button>
 </div>
 
 <div class="producto">
-<h2>Milanesas</h2>
-<p>$7500</p>
-<button onclick="pedir('Milanesas')">Pedir por WhatsApp</button>
+<h2>Milanesas con papas</h2>
+<div class="precio">$9500</div>
+<button onclick="pedir('Milanesas con papas')">Pedir por WhatsApp</button>
+</div>
+
+<div class="producto">
+<h2>Hamburguesa completa</h2>
+<div class="precio">$7500</div>
+<button onclick="pedir('Hamburguesa completa')">Pedir por WhatsApp</button>
+</div>
+
+<div class="producto">
+<h2>Menú del día</h2>
+<div class="precio">$7000</div>
+<button onclick="pedir('Menu del dia')">Pedir por WhatsApp</button>
+</div>
+
 </div>
 
 <script>
