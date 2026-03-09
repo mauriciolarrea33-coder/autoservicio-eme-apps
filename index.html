@@ -1,35 +1,79 @@
-        <!DOCTYPE html>
-<html lang="es">
-
-<head>en 
-
+        !DOCTYPE html>
+<html>
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Autoservicio EME</title>
 
+<style>
 
-<div style="text-align:center; padding:20px;">
+body{
+font-family: Arial;
+margin:0;
+background: linear-gradient(180deg,#8b0000,#c40000);
+color:white;
+text-align:center;
+}
 
-<h2>Menú</h2>
+.logo{
+margin-top:30px;
+}
 
-<button onclick="window.open('https://wa.me/5492281655755?text=Hola%20quiero%20hacer%20un%20pedido')">
+.logo img{
+width:110px;
+border-radius:20px;
+}
+
+.card{
+background:white;
+color:black;
+margin:20px;
+padding:20px;
+border-radius:20px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+button{
+background:#c40000;
+color:white;
+border:none;
+padding:15px 25px;
+margin:10px;
+font-size:18px;
+border-radius:12px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">
+<img src="logo.jpg">
+<h1>Autoservicio EME</h1>
+</div>
+
+<div class="card">
+
+<h2>Hacer Pedido</h2>
+
+<button onclick="window.open('https://wa.me/5492281655755')">
 Pedir por WhatsApp
 </button>
 
-<br><br>
+</div>
 
-<h3>Promos del día</h3>
+<div class="card">
 
-<p>🍕 Pizza muzzarella</p>
+<h2>Promos del Día</h2>
+
+<p>🍕 Pizzas</p>
 <p>🥟 Empanadas</p>
 <p>🍔 Hamburguesas</p>
-<p>🍝 Pastas caseras</p>
-
-<br>
-
-<h3>Dirección</h3>
-
-<p>Autoservicio EME</p>
+<p>🍝 Pastas</p>
 
 </div>
+
+</body>
+</html>
