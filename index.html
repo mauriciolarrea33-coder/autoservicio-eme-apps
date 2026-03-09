@@ -1,131 +1,200 @@
 !DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autoservicio EME</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#f5f5f5;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    header{
+      background:#c62828;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
 
-<title>Autoservicio eme</title>
+    header img{
+      width:140px;
+      border-radius:10px;
+    }
 
-<style>
+    .titulo{
+      font-size:18px;
+      font-weight:bold;
+      margin-top:10px;
+    }
 
-body{
-font-family:Arial;
-margin:0;
-background:#f2f2f2;
-}
+    .sub{
+      font-size:16px;
+      margin-top:5px;
+    }
 
-header{
-background:#d90000;
-color:white;
-text-align:center;
-padding:20px;
-}
+    .productos{
+      padding:15px;
+    }
 
-.logo{
-width:120px;
-margin-bottom:10px;
-}
+    .producto, .carrito{
+      background:white;
+      border-radius:12px;
+      padding:15px;
+      margin-bottom:15px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    }
 
-.titulo{
-font-size:28px;
-font-weight:bold;
-}
+    .producto h2, .carrito h2{
+      margin:0 0 10px 0;
+    }
 
-.productos{
-padding:15px;
-}
+    .precio{
+      font-size:20px;
+      font-weight:bold;
+      margin-bottom:12px;
+    }
 
-.producto{
-background:white;
-padding:15px;
-margin-bottom:15px;
-border-radius:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.2);
-}
+    button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:8px;
+    }
 
-.producto h2{
-margin:0;
-}
+    .btn-agregar{
+      background:#4caf50;
+      color:white;
+    }
 
-.precio{
-font-size:18px;
-margin:8px 0;
-}
+    .btn-whatsapp{
+      background:#25d366;
+      color:white;
+      font-weight:bold;
+    }
 
-button{
-background:#25D366;
-color:white;
-border:none;
-padding:12px;
-border-radius:8px;
-width:100%;
-font-size:16px;
-}
+    .btn-vaciar{
+      background:#e53935;
+      color:white;
+    }
 
-</style>
+    #lista-carrito{
+      margin:10px 0;
+      padding-left:20px;
+    }
 
+    #total{
+      font-size:20px;
+      font-weight:bold;
+      margin-top:10px;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
+  <header>
+    <img src="logo-eme.jpeg" alt="Logo EME">
+    <div class="titulo">Autoservicio EME</div>
+    <div class="sub">Constitución 292</div>
+  </header>
 
-<img src="logo-eme.jpeg" style="width:200px;">
+  <div class="productos">
 
-<div class="titulo">Constitucion 292</div>
+    <div class="producto">
+      <h2>Empanadas</h2>
+      <div class="precio">Docena $17000</div>
+      <button class="btn-agregar" onclick="agregarAlCarrito('Empanadas docena', 17000)">Agregar al carrito</button>
+    </div>
 
-</header>
+    <div class="producto">
+      <h2>Pizza muzzarella</h2>
+      <div class="precio">$8000</div>
+      <button class="btn-agregar" onclick="agregarAlCarrito('Pizza muzzarella', 8000)">Agregar al carrito</button>
+    </div>
 
-<div class="productos">
+    <div class="producto">
+      <h2>Milanesas con papas</h2>
+      <div class="precio">$9500</div>
+      <button class="btn-agregar" onclick="agregarAlCarrito('Milanesas con papas', 9500)">Agregar al carrito</button>
+    </div>
 
-<div class="producto">
-<h2>Empanadas</h2>
-<div class="precio">Docena $17000</div>
-<button onclick="pedir('Empanadas docena')">Pedir por WhatsApp</button>
-</div>
+    <div class="producto">
+      <h2>Hamburguesa completa</h2>
+      <div class="precio">$7500</div>
+      <button class="btn-agregar" onclick="agregarAlCarrito('Hamburguesa completa', 7500)">Agregar al carrito</button>
+    </div>
 
-<div class="producto">
-<h2>Pizza muzzarella</h2>
-<div class="precio">$8000</div>
-<button onclick="pedir('Pizza muzzarella')">Pedir por WhatsApp</button>
-</div>
+    <div class="producto">
+      <h2>Menú del día</h2>
+      <div class="precio">$6500</div>
+      <button class="btn-agregar" onclick="agregarAlCarrito('Menú del día', 6500)">Agregar al carrito</button>
+    </div>
 
-<div class="producto">
-<h2>Milanesas con papas</h2>
-<div class="precio">$9500</div>
-<button onclick="pedir('Milanesas con papas')">Pedir por WhatsApp</button>
-</div>
+    <div class="carrito">
+      <h2>Tu carrito</h2>
+      <ul id="lista-carrito"></ul>
+      <div id="total">Total: $0</div>
+      <button class="btn-whatsapp" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
+      <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
+    </div>
 
-<div class="producto">
-<h2>Hamburguesa completa</h2>
-<div class="precio">$7500</div>
-<button onclick="pedir('Hamburguesa completa')">Pedir por WhatsApp</button>
-</div>
+  </div>
 
-<div class="producto">
-<h2>Menú del día</h2>
-<div class="precio">$6500</div>
-<button onclick="pedir('Menu del dia')">Pedir por WhatsApp</button>
-</div>
+  <script>
+    let carrito = [];
 
-</div>
+    function agregarAlCarrito(nombre, precio){
+      carrito.push({ nombre, precio });
+      mostrarCarrito();
+    }
 
-<script>
+    function mostrarCarrito(){
+      const lista = document.getElementById("lista-carrito");
+      const total = document.getElementById("total");
 
-function pedir(producto){
+      lista.innerHTML = "";
 
-var telefono="5492281655755"
+      let suma = 0;
 
-var mensaje="Hola quiero pedir "+producto+" de Autoservicio EME"
+      carrito.forEach((item, index) => {
+        suma += item.precio;
 
-var url="https://wa.me/"+telefono+"?text="+encodeURIComponent(mensaje)
+        const li = document.createElement("li");
+        li.innerHTML = item.nombre + " - $" + item.precio;
+        lista.appendChild(li);
+      });
 
-window.open(url);
+      total.innerHTML = "Total: $" + suma;
+    }
 
-}
+    function vaciarCarrito(){
+      carrito = [];
+      mostrarCarrito();
+    }
 
-</script>
+    function enviarPedido(){
+      if(carrito.length === 0){
+        alert("El carrito está vacío");
+        return;
+      }
+
+      let telefono = "5492281655755";
+      let mensaje = "Hola, quiero pedir:%0A%0A";
+
+      carrito.forEach((item) => {
+        mensaje += "- " + item.nombre + " ($" + item.precio + ")%0A";
+      });
+
+      let total = carrito.reduce((acc, item) => acc + item.precio, 0);
+      mensaje += "%0ATotal: $" + total;
+
+      window.open("https://wa.me/" + telefono + "?text=" + mensaje, "_blank");
+    }
+  </script>
 
 </body>
 </html>
